@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TareasMVC.Entidades;
 
 namespace TareasMVC
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -18,5 +19,7 @@ namespace TareasMVC
         }
 
         public DbSet<Tarea> Tareas { get; set; }
+        public DbSet<Paso> Pasos { get; set; }
+        public DbSet<ArchivoAdjunto> ArchivoAdjuntos { get; set; }
     }
 }
